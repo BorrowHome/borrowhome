@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    url: jdbc:mysql://forcebing.top:3306/borrowhome
+    username: borrowhome
+    password: borrowhome
+    test-while-idle: true
+    validation-query: SELECT 1
+  jpa:
+    #    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 604800
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
+
+server:
+  ssl:
+    key-alias: mykey
+    key-password: 123456
+    key-store: classpath:my.keystore
+  port: 8081
+
+
+file:
+  temp: /root/tmp/
+  resourceLocation: /home/wwwroot/default/img/
+  #
+multipart:
+  maxFileSize: 10MB
+  maxRequestSize: 50MB
