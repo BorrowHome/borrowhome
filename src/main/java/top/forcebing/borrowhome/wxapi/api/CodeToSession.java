@@ -22,7 +22,7 @@ public class CodeToSession {
 
     public Object getCodeToSession(String jscode) throws IOException {
 
-        String queryString = "appid=" + AppConfig.appId + "&secret=" + AppConfig.secret + "&js_code=" + jscode + "&grant_type=" + AppConfig.grant_type;
+        String queryString = "appid=" + AppConfig.appId + "&secret=" + AppConfig.secret + "&js_code=" + jscode + "&grant_type=" + "authorization_code";
 
         String result = queryService.getYbApi("sns/jscode2session", queryString);
 

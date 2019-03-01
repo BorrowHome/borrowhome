@@ -35,7 +35,7 @@ public class AuthController {
 
     @GetMapping("/auth")
     @ApiOperation(value = "授权拿token")
-    public Object auth(@ApiParam(value = "微信发起登录后得到的jscode ") @RequestParam String jscode) throws IOException {
+    public Object auth(@ApiParam(value = "微信发起登录后得到的jscode ") @RequestParam String jscode, @RequestParam String staus) throws IOException {
 
         System.out.println(jscode);
 
@@ -44,12 +44,18 @@ public class AuthController {
         if ("0".equals(loginDataBack.errcode)) {
 
             String userId = String.valueOf(borrowHomeUserFactory.createUser(loginDataBack));
-
             JwtUser jwtUser = new JwtUser("username", userId);
             String token = jwtTokenUtil.generateToken(jwtUser);
-            return ResponseBean.success(token);
+            return ResponseBean.success(token, staus);
         }
 
-        return ResponseBean.error("授权出错");
+
+        return ResponseBean.error(staus);
+    }
+
+    @GetMapping("/token")
+    @ApiOperation("测试token")
+    public Object token() {
+        return jwtTokenUtil.generateToken(new JwtUser("username", "2"));
     }
 }

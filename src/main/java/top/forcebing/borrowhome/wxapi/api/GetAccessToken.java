@@ -22,9 +22,10 @@ public class GetAccessToken {
     private QueryService queryService;
 
     public Object getAccessToken() throws IOException {
-        String queryString = "grant_type=" + AppConfig.grant_type + "&appid=" + AppConfig.appId + "&secret=" + AppConfig.secret;
+        String queryString = "grant_type=" + "client_credential" + "&appid=" + AppConfig.appId + "&secret=" + AppConfig.secret;
 
         String result = queryService.getYbApi("cgi-bin/token", queryString);
+        System.out.println(result);
         try {
             WXAccessToken WXAccessToken = GsonUtil.getGsonInstance().fromJson(result, WXAccessToken.class);
             return WXAccessToken;
