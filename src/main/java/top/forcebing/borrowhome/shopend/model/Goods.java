@@ -21,11 +21,13 @@ public class Goods implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
+    private long adminId;
     private long storeId; //店铺的ID
     private String clothesName;//衣服的名字
     private String classification;//衣服的分类
-
     private String clothesDescription;
+
+    private String previewImg;
+
 
 }

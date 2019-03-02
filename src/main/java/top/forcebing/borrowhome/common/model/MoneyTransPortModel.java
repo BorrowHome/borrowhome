@@ -9,7 +9,7 @@ import java.sql.Date;
 /**
  * @ Author     ：hantiaotiao.
  * @ Date       ：Created in 19-2-25 下午7:09
- * @ Description：todo
+ * @ Description：
  */
 @Entity
 public class MoneyTransPortModel {

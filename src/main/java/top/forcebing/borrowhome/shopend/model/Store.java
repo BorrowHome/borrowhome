@@ -24,9 +24,10 @@ public class Store implements Serializable {
     private long id;
 
 
-    private String shopName;
-    private String shopHeading; //店的头像。。
+    private String storeName;
+    private String storeHeading; //店的头像。。
 
+    private String storeBanner;
     private String adminUserId; //在授权过后的数据那边收录
 
     public enum CheckStauts {Pass, NotPass}

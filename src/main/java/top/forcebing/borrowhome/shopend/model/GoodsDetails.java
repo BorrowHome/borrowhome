@@ -22,11 +22,10 @@ public class GoodsDetails implements Serializable {
     private long id;
     private long goodsId;//前面商品的id
 
-    private String colorClassification; //颜色分类的图片
+    private String color; //颜色分类的图片
 
-    private String colorClassificationSelect; //和颜色分类相同，只有我们的数据相同的时候才能这样
+    private String colorImage; //和颜色分类相同，只有我们的数据相同的时候才能这样
 
-    private String colorText;//颜色分类的图片文字解释
 
     private String clothesSize; //衣服的尺寸分类//前端给吧。提前定义好
 

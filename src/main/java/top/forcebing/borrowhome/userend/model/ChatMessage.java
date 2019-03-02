@@ -19,7 +19,7 @@ public class ChatMessage {
     private String messageDetails;
     private String toSomeOne;//对应的是用户的电话号码
     private String fromSomeOne;
-    @Column(columnDefinition = "enum('1','2','3'")
+    @Column(columnDefinition = "enum('1','2','3')")
     private String textType;//enum类型。对应的是聊天内容，图片还是普通文字，还是图片链接。
     @Column(columnDefinition = "enum('point2point','broadcast')")
     private String chatType;

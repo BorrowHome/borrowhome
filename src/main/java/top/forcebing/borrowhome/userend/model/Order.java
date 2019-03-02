@@ -2,10 +2,7 @@ package top.forcebing.borrowhome.userend.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -14,6 +11,7 @@ import java.util.Date;
  **/
 @Entity
 @Data
+@Table(name = "borrow_home_order")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,7 +30,6 @@ public class Order {
     private int count; //我买了几件衣服 。。
     private double amount; //total amount
     private String orderStatus;//create  preparingpay 支付宝页面那一块  待付款 待发货 待收货  订单完成  退款/售后（衣服店是否是没有售后这一说的）
-    //OrderStatusType
 
     private String outTradeNo;//支付宝交易号，我们自己生成。
     private String tradeNo; //支付宝异步生成的交易号，异步发送给我们。

@@ -1,4 +1,4 @@
-package top.forcebing.borrowhome.shopend.model;
+package top.forcebing.borrowhome.userend.model;
 
 import lombok.Data;
 
@@ -19,12 +19,13 @@ public class Comment {
     private long userId;
     private long goodsId;
 
+    private String commentType;
     @Lob
     @Basic(fetch = FetchType.LAZY)
     @Column(columnDefinition = "Text")
     private String contentText;
 
-    private long picNumber;
+
     private String picPath1;
     private String picPath2;
     private String picPath3;

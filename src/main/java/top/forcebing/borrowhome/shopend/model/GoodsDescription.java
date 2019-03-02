@@ -14,7 +14,7 @@ import javax.persistence.Id;
  **/
 @Data
 @Entity
-public class GoodsDescripiton {
+public class GoodsDescription {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,5 +26,10 @@ public class GoodsDescripiton {
     private String picture3;
     private String picture4;
     private long goodsId;
+
+
+    private String preview;
+    private String preview2;
+    private String preview3;
 
 }
