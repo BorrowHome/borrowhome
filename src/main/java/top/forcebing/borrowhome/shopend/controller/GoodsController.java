@@ -119,6 +119,7 @@ public class GoodsController {
         return ResponseBean.success(goodsDetails);
     }
 
+    // TODO 2019/3/3 19:52 liliangbin 当商家修改得时候我们需要修改经销商那边得物品
     @DeleteMapping("/deleteGoodsDetails")
     @ApiOperation("删除某个产品分类")
     public Object deleteGoodsDetails(@RequestParam String Authorization, @RequestParam Long goodsDetailsId) {
@@ -127,6 +128,7 @@ public class GoodsController {
         return ResponseBean.success();
     }
 
+    // TODO 2019/3/3 19:53 liliangbin 同上
     @DeleteMapping("/deleteGoods")
     public Object deleteGoods(@RequestParam String Authorization, Long goodsId) {
 

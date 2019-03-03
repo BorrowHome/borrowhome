@@ -19,8 +19,6 @@ public class AgencyGoodsDetails extends GoodsDetails {
 
     private long agencyId;
 
-    private double newPrice;
-
     private long agencyGoodsId;
 
     public AgencyGoodsDetails(GoodsDetails goodsDetails) {

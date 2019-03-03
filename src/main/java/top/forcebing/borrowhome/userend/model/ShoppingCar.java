@@ -18,7 +18,7 @@ public class ShoppingCar {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private long goodsDetailId; //具体的某个商品
+    private long AgencyGoodsDetailId; //具体的某个商品
     private long AgencyGoodsId;
     private long storeId;
     private String userId;

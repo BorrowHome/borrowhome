@@ -34,10 +34,10 @@ public class ShoppingCarController {
     private JwtTokenUtil jwtTokenUtil;
 
     @PostMapping("/addOne")
-    public Object addOne(@RequestParam String Authorization, @RequestParam Long goodsDetailsId, @RequestParam Long agencyGoodsId, @RequestParam Long storeId, @RequestParam Integer count) {
+    public Object addOne(@RequestParam String Authorization, @RequestParam Long agencyGoodsDetailsId, @RequestParam Long agencyGoodsId, @RequestParam Long storeId, @RequestParam Integer count) {
         ShoppingCar shoppingCar = new ShoppingCar();
         shoppingCar.setAgencyGoodsId(agencyGoodsId);
-        shoppingCar.setGoodsDetailId(goodsDetailsId);
+        shoppingCar.setAgencyGoodsDetailId(agencyGoodsDetailsId);
         shoppingCar.setCount(count);
         shoppingCar.setUserId(jwtTokenUtil.getUserIdFromToken(Authorization));
         shoppingCar.setStoreId(storeId);

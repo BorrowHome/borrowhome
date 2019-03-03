@@ -163,7 +163,7 @@ public class AgencyController {
         agencyGoodsRepository.save(agencyGoods);
 
         AgencyGoodsDetails agencyGoodsDetails = agencyGoodsDetailsRepository.findById(agencyGoodsDetailsId).get();
-        agencyGoodsDetails.setNewPrice(price);
+        agencyGoodsDetails.setPrice(price);
 
 
         agencyGoodsDetailsRepository.save(agencyGoodsDetails);

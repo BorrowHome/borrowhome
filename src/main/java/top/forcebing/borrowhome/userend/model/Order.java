@@ -23,8 +23,8 @@ public class Order {
 
     private String userLocation; //具体的坐标值经纬度
 
-    private long goodsDetailsId; //
-    private long goodsId;
+    private long agencyGoodsDetailsId; //
+    private long agencyGoodsId;
     private long storeId;
     private String remarks;//备注
 
@@ -35,13 +35,12 @@ public class Order {
     private String outTradeNo;//支付宝交易号，我们自己生成。
     private String tradeNo; //支付宝异步生成的交易号，异步发送给我们。
 
-    private String mapId; //高德地图返回的 ID  通过这个控制订单的发放。
-    private String mapOrderStatus;//当我们把订单给投放出去后，已经  等待派单  商家发货   已经发货  在路上   还是什么的。。
 
     private Date createTime;
     private Date payTime;
     private Date notifyTime;
 
+    private String userTel;
 }
 
 // INFO  2019/3/2 18:07 liliangbin  这个类默认的order 对象有点问题，应该是和关键词冲突了
