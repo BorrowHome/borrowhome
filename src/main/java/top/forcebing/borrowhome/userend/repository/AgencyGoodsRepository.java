@@ -10,10 +10,12 @@ import java.util.List;
  * @author liliangbin  dumpling1520@gmail.com
  * @date 2019/3/3  15:16
  **/
+
+
 public interface AgencyGoodsRepository extends CrudRepository<AgencyGoods, Long> {
     void deleteByAgencyIdAndStoreId(long userId, long storeId);
 
-    List<AgencyGoods> findByAgencyIdaAndShow(long agencyId, boolean show);
+    List<AgencyGoods> findByAgencyIdAndShown(long agencyId, boolean show);
 
     @Query(value = "select * from goods where classification=?1 order by RAND() limit 10", nativeQuery = true)
     List<AgencyGoods> findByRandom(String classification);

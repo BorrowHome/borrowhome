@@ -14,6 +14,8 @@ import top.forcebing.borrowhome.common.utils.JwtTokenUtil;
 import top.forcebing.borrowhome.common.utils.ResponseBean;
 import top.forcebing.borrowhome.shopend.model.Store;
 import top.forcebing.borrowhome.shopend.repository.StoreRepository;
+import top.forcebing.borrowhome.userend.model.Order;
+import top.forcebing.borrowhome.userend.repository.OrderRepository;
 
 import java.util.List;
 
@@ -37,6 +39,8 @@ public class StoreController {
     private UserInfoRepository userInfoRepository;
     @Autowired
     private SysRoleRepository sysRoleRepository;
+    @Autowired
+    private OrderRepository orderRepository;
 
     @GetMapping("/create")
     @ApiOperation(value = "创建一个店铺")
@@ -64,5 +68,13 @@ public class StoreController {
         return ResponseBean.success(store.getId(), "storeId");
     }
 
+    @GetMapping("/GetStore")
+    public Object getAllOrder(@RequestParam String Authorization) {
+        String userId = jwtTokenUtil.getUserIdFromToken(Authorization);
+        Store store = storeRepository.findByAdminUserId(Long.valueOf(userId));
+
+        List<Order> orders = orderRepository.findByStoreId(store.getId());
+        return ResponseBean.success(orders);
+    }
 
 }

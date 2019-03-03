@@ -31,7 +31,6 @@ public class Store implements Serializable {
     private String adminUserId; //在授权过后的数据那边收录
 
     private String classification;
-
     public enum CheckStauts {Pass, NotPass}
 
     private CheckStauts checking; //审核商家的营业执照默认的时候是等于零的。  通过为1，准备为2 ,//enum  使用枚举来搞定

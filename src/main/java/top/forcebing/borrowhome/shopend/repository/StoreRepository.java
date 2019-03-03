@@ -13,4 +13,7 @@ import java.util.List;
 public interface StoreRepository extends CrudRepository<Store, Long> {
 
     List<Store> findByClassification(String classification);
+
+    Store findByAdminUserId(long userId);
+
 }

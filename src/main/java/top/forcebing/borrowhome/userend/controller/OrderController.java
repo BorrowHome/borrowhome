@@ -80,7 +80,6 @@ public class OrderController {
         Order order = orderRepository.findById(orderId).get();
 
         switch (status) {
-
             case "0":
             case "1":
             case "2":
@@ -93,7 +92,7 @@ public class OrderController {
                 return ResponseBean.error();
             }
         }
-
-
     }
+
+
 }

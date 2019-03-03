@@ -159,7 +159,7 @@ public class AgencyController {
         }
 
         agencyGoods.setChangeTime(new Date());
-        agencyGoods.setShow(true);
+        agencyGoods.setShown(true);
         agencyGoodsRepository.save(agencyGoods);
 
         AgencyGoodsDetails agencyGoodsDetails = agencyGoodsDetailsRepository.findById(agencyGoodsDetailsId).get();
@@ -174,7 +174,7 @@ public class AgencyController {
     @GetMapping("/showGoods")
     public Object showGoods(@RequestParam String Authorization) {
         String userId = jwtTokenUtil.getUserIdFromToken(Authorization);
-        List<AgencyGoods> agencyGoods = agencyGoodsRepository.findByAgencyIdaAndShow(Long.valueOf(userId), true);
+        List<AgencyGoods> agencyGoods = agencyGoodsRepository.findByAgencyIdAndShown(Long.valueOf(userId), true);
 
         return ResponseBean.success(agencyGoods);
 
@@ -185,5 +185,6 @@ public class AgencyController {
     public Object getAgencyDetails(@RequestParam long agencyGoodsId) {
         return ResponseBean.success(agencyGoodsDetailsRepository.findByAgencyGoodsId(agencyGoodsId));
     }
+
 
 }
