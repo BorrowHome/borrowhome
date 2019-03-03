@@ -33,7 +33,7 @@ public class CollectController {
     @PostMapping("/create")
     public Object create(@RequestParam String Authorization,
                          @RequestParam @ApiParam(value = "收藏的id") long collectId,
-                         @RequestParam @ApiParam(value = "收藏的分类 goods  store  note  ") String collectType) {
+                         @RequestParam @ApiParam(value = "收藏的分类 goods  personalStore  note  ") String collectType) {
 
 
         Collect collect = new Collect();
@@ -44,7 +44,7 @@ public class CollectController {
                 collect.setCollectionType(Collect.CollectType.goods);
                 break;
             }
-            case "store": {
+            case "personalStore": {
                 collect.setCollectionType(Collect.CollectType.shop);
                 break;
             }
@@ -96,6 +96,7 @@ public class CollectController {
 
         collectRepository.deleteById(Long.valueOf(collectId));
         return ResponseBean.success();
+
     }
 
 }

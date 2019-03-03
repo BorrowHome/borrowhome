@@ -14,6 +14,10 @@ import top.forcebing.borrowhome.shopend.model.GoodsDetails;
 import top.forcebing.borrowhome.shopend.repository.GoodsDescriptionRepository;
 import top.forcebing.borrowhome.shopend.repository.GoodsDetailsRepository;
 import top.forcebing.borrowhome.shopend.repository.GoodsRepository;
+import top.forcebing.borrowhome.userend.model.AgencyGoods;
+import top.forcebing.borrowhome.userend.model.AgencyGoodsDetails;
+import top.forcebing.borrowhome.userend.repository.AgencyGoodsDetailsRepository;
+import top.forcebing.borrowhome.userend.repository.AgencyGoodsRepository;
 
 import java.util.HashMap;
 import java.util.List;
@@ -30,33 +34,36 @@ import java.util.Map;
 public class HomeController {
 
     @Autowired
-    private GoodsRepository goodsRepository;
+    private AgencyGoodsRepository agencyGoodsRepository;
 
     @Autowired
     private GoodsDescriptionRepository goodsDescriptionRepository;
 
     @Autowired
-    private GoodsDetailsRepository goodsDetailsRepository;
+    private AgencyGoodsDetailsRepository agencyGoodsDetailsRepository;
 
     @GetMapping("/")
     public Object getRandom(@RequestParam String classification) {
 
-        List<Goods> goods = goodsRepository.findByRandom(classification);
+        List<AgencyGoods> goods = agencyGoodsRepository.findByRandom(classification);
         return ResponseBean.success(goods);
     }
 
 
     @GetMapping("/getOne")
-    public Object getOne(@RequestParam Long goodsId) {
+    public Object getOne(@RequestParam Long agencyGoodsId) {
 
         Map<String, Object> goodsDetailsWithString = new HashMap<>();
+        AgencyGoods agencyGoods = agencyGoodsRepository.findById(agencyGoodsId).get();
 
-        List<GoodsDetails> goodsDetails = goodsDetailsRepository.findByGoodsId(goodsId);
-        GoodsDescription goodsDescription = goodsDescriptionRepository.findByGoodsId(goodsId);
+        List<AgencyGoodsDetails> goodsDetails = agencyGoodsDetailsRepository.findByAgencyGoodsId(agencyGoodsId);
+
+        GoodsDescription goodsDescription = goodsDescriptionRepository.findByGoodsId(agencyGoods.getGoodsId());
 
         goodsDetailsWithString.put("goodsDetails", goodsDetails);
         goodsDetailsWithString.put("goodsDescription", goodsDescription);
-        return ResponseBean.success(goodsDetailsWithString);
+        // INFO  2019/3/3 15:56 liliangbin  返回当前代理商得数据。
+        return ResponseBean.success(goodsDetailsWithString, String.valueOf(agencyGoods.getAgencyId()));
 
     }
 

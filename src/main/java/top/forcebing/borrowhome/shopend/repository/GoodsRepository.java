@@ -11,7 +11,8 @@ import java.util.List;
  * @date 2019/3/1  19:38
  **/
 public interface GoodsRepository extends CrudRepository<Goods, Long> {
-    List<Goods> findByAdminId(long userId);
+    List<Goods> findByAdminId(long adminId);
+    List<Goods> findByStoreId(long storeId);
 
     @Query(value = "select * from goods where classification=?1 order by RAND() limit 10", nativeQuery = true)
     List<Goods> findByRandom(String classification);

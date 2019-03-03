@@ -9,23 +9,18 @@ import javax.persistence.Id;
 
 /**
  * @author liliangbin  dumpling1520@gmail.com
- * @date 2019/3/1  19:46
+ * @date 2019/3/3  14:48
  **/
-
-@Data
 @Entity
-public class ShoppingCar {
+@Data
+public class Sign {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private long goodsDetailId; //具体的某个商品
-    private long AgencyGoodsId;
-    private long storeId;
-    private String userId;
-    private int count;
+    private Long id;
 
-    private long noteId;
-    private long noteAuthorId;
+    private long userId;
+    private long storeId;
 
 
 }

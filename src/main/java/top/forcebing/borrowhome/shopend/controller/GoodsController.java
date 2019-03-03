@@ -47,7 +47,7 @@ public class GoodsController {
                          @RequestParam String goodsDescription,
                          @RequestParam String classification,
                          @RequestParam String preview) {
-        // INFO  2019/3/2 13:16 liliangbin   校验store 和userId 的关系
+        // INFO  2019/3/2 13:16 liliangbin   校验 store 和userId 的关系
         String userId = jwtTokenUtil.getUserIdFromToken(Authorization);
 
         Store store = storeRepository.findById(storeId).get();
@@ -67,7 +67,7 @@ public class GoodsController {
         return ResponseBean.success(goods.getId(), "goodsId");
     }
 
-    @PostMapping("/goodDetails")
+    @PostMapping("/goodsDetails")
     public Object createGoodsDetails(@RequestParam String Authorization, @RequestParam Long storeId,
                                      @RequestParam Long goodsId,
                                      @RequestParam String color,
@@ -109,7 +109,7 @@ public class GoodsController {
     }
 
     @GetMapping("/getGoodsDetails")
-    @ApiOperation(value = "获得商家已经商家的产品")
+    @ApiOperation(value = "获得商家已经上传的产品")
     public Object getGoodsDetails(@RequestParam String Authorization, @RequestParam String goodsId) {
 
         String userId = jwtTokenUtil.getUserIdFromToken(Authorization);

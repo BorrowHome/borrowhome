@@ -29,6 +29,9 @@ public class UserInfo implements Serializable {
 
     private String salt;
 
+    private boolean agency;
+
+    private String IDCard;
 
     public static char[] getSalts() {
         return salts;

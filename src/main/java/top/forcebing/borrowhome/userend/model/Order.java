@@ -8,6 +8,7 @@ import java.util.Date;
 /**
  * @author liliangbin  dumpling1520@gmail.com
  * @date 2019/3/1  19:47
+ *
  **/
 @Entity
 @Data
@@ -42,3 +43,5 @@ public class Order {
     private Date notifyTime;
 
 }
+
+// INFO  2019/3/2 18:07 liliangbin  这个类默认的order 对象有点问题，应该是和关键词冲突了
